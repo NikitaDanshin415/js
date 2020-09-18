@@ -29,6 +29,7 @@ const fields = {
 console.log(getNumbersSumm(fields))
 */
 "use strict";
+console.log('Задание №7---------------------------------------------');
 
 const fields = {
     name: {
