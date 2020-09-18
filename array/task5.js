@@ -20,7 +20,6 @@ function myFilter(array, callback, isThis){
     let response = [];
 
     for (let i = 0; i < array.length; i++){
-        console.log(array[i]);
 
         if (callback.call(t, array[i])){
             response.push(array[i]);
