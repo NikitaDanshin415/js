@@ -1,6 +1,32 @@
 // ДЗ 3*: Попытаться по памяти воспроизвести кеш-функцию
-// ДЗ 4: Написать таймер, которые будут выводить часы, минуты и секунды, где за каждый тип (час, мин, сек) будет отвечать свой таймер. Вывод в консоль
-// ДЗ 5*: Посмотреть на класс Date и выводить новое время в консоль при наступлении новой секунды
 
 "use strict";
 
+const test = (a, b ) => {
+    console.log(`sum (${a} + ${b})`);
+
+    return a + b;
+}
+
+function cache(cb){
+
+    let cached = {};
+
+    return (...args) => {
+
+        if ( cached[JSON.stringify(args)] != null ){
+            return cached[JSON.stringify(args)];
+        }
+
+        cached[JSON.stringify(args)] = cb.apply(null, args);
+
+        return cached[JSON.stringify(args)];
+    }
+}
+
+const cached = cache(test);
+console.log(cached(1,3))
+console.log(cached(1,3))
+console.log(cached(1,4))
+console.log(cached(2,3))
+console.log(cached(1,3))
