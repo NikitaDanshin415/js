@@ -13,20 +13,26 @@ function getCurrentNum(num){
     return "0"+num;
 }
 
-function checkSec(){
-    console.log(`${hour}:${getCurrentNum(minute)}:${getCurrentNum(++sec)}`)
+function getSec(){
+    sec++;
 }
 
-function checkMinute(){
+function getMinute(){
     sec = -1;
     minute++;
 }
 
-function checkHour(){
+function getHour(){
     minute = -1;
     hour++;
 }
 
-const timerSec = setInterval(checkSec, 1000);
-const timerMinute = setInterval(checkMinute, 60 * 1000);
-const timerHour = setInterval(checkHour, 60 * 60 * 1000);
+function printTime(){
+    console.log(`${hour}:${getCurrentNum(minute)}:${getCurrentNum(sec)}`)
+}
+
+setInterval(getSec, 1000);
+setInterval(getMinute, 60 * 1000);
+setInterval(getHour, 60 * 60 * 1000);
+
+setInterval(printTime,1000);
