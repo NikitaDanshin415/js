@@ -1,5 +1,5 @@
 "use strict";
-//ДЗ 4: Написать таймер, которые будут выводить часы, минуты и секунды, 
+//ДЗ 4: Написать таймер, которые будут выводить часы, минуты и секунды,
 //где за каждый тип (час, мин, сек) будет отвечать свой таймер. Вывод в консоль
 
 let sec = 0;
@@ -14,21 +14,17 @@ function getCurrentNum(num){
 }
 
 function checkSec(){
-    if(sec < 59){
-        console.log(`PrintSec() : ${hour}:${getCurrentNum(minute)}:${getCurrentNum(++sec)}`)
-    }
+    console.log(`${hour}:${getCurrentNum(minute)}:${getCurrentNum(++sec)}`)
 }
 
 function checkMinute(){
-    sec = 0;
-    if(minute < 59){
-        console.log(`PrintMin() : ${hour}:${getCurrentNum(++minute)}:${getCurrentNum(sec)}`)
-    }
+    sec = -1;
+    minute++;
 }
 
 function checkHour(){
-    minute = 0;
-    console.log(`PrintHour() : ${++hour}:${getCurrentNum(++minute)}:${getCurrentNum(sec)}`);
+    minute = -1;
+    hour++;
 }
 
 const timerSec = setInterval(checkSec, 1000);
