@@ -14,7 +14,7 @@ function cache(cb){
 
     return (...args) => {
 
-        if ( cached[JSON.stringify(args)] != null ){
+        if ( cached[JSON.stringify(args)] ){
             return cached[JSON.stringify(args)];
         }
 
