@@ -2,28 +2,23 @@
 "use strict";
 
 const hamster = {
-    stomach: [],
+    stomach: ["test1"],
     eat(food) {
-        if(this.stomach.length === 0){
-            this.stomach = [food];
-        }else{
-            this.stomach.push(food);
-        }
+        this.stomach.push(food);
     },
 }
 
 const speedy = {
     __proto__: hamster,
+    stomach: ["test2"],
 }
 
 const lazy = {
     __proto__: hamster,
+    stomach: [],
 }
 
 
-//При вызове this.stomach.push(food) js пытается найти свойство stomach в текущем объекте, но так как его там нет,
-//он идет вверх к родительскому элементу и использует его.
-//При вызове this.stomach = [food] js создает новое свойство stomach в текущем объекте, если его там нет, и кладет значение в него.
 
 speedy.eat('apple')
 speedy.eat('orange')
@@ -34,3 +29,4 @@ lazy.eat('banana')
 
 console.log(speedy);
 console.log(lazy);
+
