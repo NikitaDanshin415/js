@@ -1,12 +1,16 @@
 //ДЗ 3: Переписать задачку (решение) про хомяков с использованием конструкторов и прототипов
 
-function Hamster(){
-    this.stomach = [];
-
-    this.eat = function(eat){
+const Animal = {
+    eat : function(eat){
         this.stomach.push(eat)
     }
 }
+
+function Hamster(){
+    this.stomach = [];
+}
+
+Hamster.prototype = Animal;
 
 const speedy = new Hamster();
 const lazy = new Hamster();
